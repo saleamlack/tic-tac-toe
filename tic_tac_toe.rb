@@ -30,4 +30,17 @@ def set_current_player
   players.keys[current_player - 1]
 end
 
-puts set_current_player
+def draw_board(board_grid)
+  puts "
+       |     |     
+   -#{board_grid["1"]}- | -#{board_grid["2"]}- | -#{board_grid["3"]}-
+  _____|_____|_____
+       |     |     
+   -#{board_grid["4"]}- | -#{board_grid["5"]}- | -#{board_grid["6"]}- 
+  _____|_____|_____
+       |     |     
+   -#{board_grid["7"]}- | -#{board_grid["8"]}- | -#{board_grid["9"]}- 
+       |     |     "
+end
+
+draw_board({"1"=>1, "2"=>2, "3"=>3, "4"=>4, "5"=>5, "6"=>6, "7"=>7, "8"=>8, "9"=>9})
