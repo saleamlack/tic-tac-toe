@@ -1,6 +1,6 @@
 class Player
   attr_accessor :name, :player_symbol
-    
+
   def initialize(name, player_symbol)
     self.name = name
     self.player_symbol = player_symbol
@@ -20,4 +20,14 @@ def instantiate_player
   players
 end
 
-players = instantiate_player
+def set_current_player
+  players = instantiate_player
+  puts 'Who plays first?'
+  puts "\t1. #{players.keys[0]}"
+  puts "\t2. #{players.keys[1]}"
+  print 'Input (1/2): '
+  current_player = gets.chomp.to_i
+  players.keys[current_player - 1]
+end
+
+puts set_current_player
