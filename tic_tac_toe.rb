@@ -1,5 +1,6 @@
 class Player
   DEFAULT_BOARD = {'1'=>1, '2'=>2, '3'=>3, '4'=>4, '5'=>5, '6'=>6, '7'=>7, '8'=>8, '9'=>9}
+  @@new_board = DEFAULT_BOARD
 
   attr_accessor :name, :player_symbol, :playing_numbers
 
@@ -49,6 +50,11 @@ class Player
     print "#{current_player}: "
     selected_number = gets.chomp.to_i
     @@players[current_player].playing_numbers.push(selected_number)
+  end
+
+  def self.update_board(selected_number)
+    @@new_board[selected_number] = @@players[@@current_player].player_symbol
+    Player.draw_board(@@new_board)
   end
 end
 
