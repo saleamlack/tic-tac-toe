@@ -1,13 +1,14 @@
 class Player
   DEFAULT_BOARD = {'1'=>1, '2'=>2, '3'=>3, '4'=>4, '5'=>5, '6'=>6, '7'=>7, '8'=>8, '9'=>9}
 
-  attr_accessor :name, :player_symbol
+  attr_accessor :name, :player_symbol, :playing_numbers
 
   @@players = {}
   @@current_player = nil
   def initialize(name, player_symbol)
     self.name = name
     self.player_symbol = player_symbol
+    self.playing_numbers = []
   end
 
   def self.instantiate_player
@@ -27,7 +28,7 @@ class Player
     puts "\t2. #{players_name[1]}"
     print 'Input (1/2): '
     selected_player = gets.chomp.to_i
-    @@current_palyer = players_name[selected_player - 1]
+    @@current_player = players_name[selected_player - 1]
   end
   
   def self.draw_board(board = DEFAULT_BOARD)
