@@ -24,12 +24,18 @@ class Player
   end
   
   def self.set_current_player(players_name)
-    puts 'Who plays first?'
-    puts "\t1. #{players_name[0]}"
-    puts "\t2. #{players_name[1]}"
-    print 'Input (1/2): '
-    selected_player = gets.chomp.to_i
-    @@current_player = players_name[selected_player - 1]
+    unless @@current_player
+      puts 'Who plays first?'
+      puts "\t1. #{players_name[0]}"
+      puts "\t2. #{players_name[1]}"
+      print 'Input (1/2): '
+      selected_player = gets.chomp.to_i
+      @@current_player = players_name[selected_player - 1]
+    else
+      @@current_player = 
+        @@current_player == players_name[0] ?
+        players_name[1] : players_name[0]
+    end
   end
   
   def self.draw_board(board = DEFAULT_BOARD)
