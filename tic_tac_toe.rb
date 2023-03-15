@@ -43,6 +43,13 @@ class Player
      -#{board["7"]}- | -#{board["8"]}- | -#{board["9"]}- 
          |     |     "
   end
+ 
+  def self.set_playing_number(current_player)
+    puts "Select a number from a board!"
+    print "#{current_player}: "
+    selected_number = gets.chomp.to_i
+    @@players[current_player].playing_numbers.push(selected_number)
+  end
 end
 
 #draw_board({"1"=>1, "2"=>2, "3"=>3, "4"=>4, "5"=>5, "6"=>6, "7"=>7, "8"=>8, "9"=>9})
