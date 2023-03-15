@@ -30,16 +30,16 @@ class Player
     @@current_palyer = players_name[selected_player - 1]
   end
   
-  def self.draw_board(board_grid)
+  def self.draw_board(board = DEFAULT_BOARD)
     puts "
          |     |     
-     -#{board_grid["1"]}- | -#{board_grid["2"]}- | -#{board_grid["3"]}-
+     -#{board["1"]}- | -#{board["2"]}- | -#{board["3"]}-
     _____|_____|_____
          |     |     
-     -#{board_grid["4"]}- | -#{board_grid["5"]}- | -#{board_grid["6"]}- 
+     -#{board["4"]}- | -#{board["5"]}- | -#{board["6"]}- 
     _____|_____|_____
          |     |     
-     -#{board_grid["7"]}- | -#{board_grid["8"]}- | -#{board_grid["9"]}- 
+     -#{board["7"]}- | -#{board["8"]}- | -#{board["9"]}- 
          |     |     "
   end
 end
