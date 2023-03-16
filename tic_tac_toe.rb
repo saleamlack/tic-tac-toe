@@ -1,4 +1,5 @@
 class Player
+  WINNING_CONDITIONS = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7], [2, 5, 8], [3, 6, 9], [1, 5, 9], [3, 5, 7]]
   DEFAULT_BOARD = {'1'=>1, '2'=>2, '3'=>3, '4'=>4, '5'=>5, '6'=>6, '7'=>7, '8'=>8, '9'=>9}
   @@new_board = DEFAULT_BOARD
 
@@ -58,9 +59,17 @@ class Player
     @@players[current_player].playing_numbers.push(selected_number)
   end
 
-  def self.update_board(selected_number)
-    @@new_board[selected_number] = @@players[@@current_player].player_symbol
+  def self.update_board(playing_number)
+    @@new_board[playing_number] = @@players[@@current_player].player_symbol
     Player.draw_board(@@new_board)
+  end
+
+  private
+  
+  def winner?(playing_numbers)
+    WINNING_CONDITIONS.each do |win|
+      ((win & playing_numbers) == win) ? true : false
+    end
   end
 end
 
