@@ -1,5 +1,5 @@
-require "./tic_tac_toe.rb"
+require './tic_tac_toe'
 include TicTacToe
 
-game = Game.new("Sale", "Rekik")
+game = Game.new('Sale', 'Rekik')
 game.play
