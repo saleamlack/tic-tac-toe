@@ -41,8 +41,6 @@ end
 
 class Game
   WINNING_CONDITIONS = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7], [2, 5, 8], [3, 6, 9], [1, 5, 9], [3, 5, 7]]
-  DEFAULT_BOARD = {'1'=>1, '2'=>2, '3'=>3, '4'=>4, '5'=>5, '6'=>6, '7'=>7, '8'=>8, '9'=>9}
-  @@new_board = DEFAULT_BOARD
 
   attr_accessor :player1, :player2, :boare, :current_player
 
@@ -69,11 +67,10 @@ class Game
       self.player2 : self.player1
   end
  
-  def self.set_playing_number(current_player)
-    puts "Select a number from a board!"
-    print "#{current_player}: "
-    selected_number = gets.chomp.to_i
-    @@players[current_player].playing_numbers.push(selected_number)
+  def set_playing_number
+    puts "Put your symbol on postion: "
+    played_number = gets.chomp.to_i
+    self.current_player.playing_numbers.push(played_number)
   end
 
   def winner?(playing_numbers)
