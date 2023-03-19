@@ -1,17 +1,20 @@
 class Player
-  WINNING_CONDITIONS = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7], [2, 5, 8], [3, 6, 9], [1, 5, 9], [3, 5, 7]]
-  DEFAULT_BOARD = {'1'=>1, '2'=>2, '3'=>3, '4'=>4, '5'=>5, '6'=>6, '7'=>7, '8'=>8, '9'=>9}
-  @@new_board = DEFAULT_BOARD
-
   attr_accessor :name, :player_symbol, :playing_numbers
 
-  @@players = {}
-  @@current_player = nil
   def initialize(name, player_symbol)
     self.name = name
     self.player_symbol = player_symbol
     self.playing_numbers = []
   end
+end
+
+class Game
+  WINNING_CONDITIONS = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7], [2, 5, 8], [3, 6, 9], [1, 5, 9], [3, 5, 7]]
+  DEFAULT_BOARD = {'1'=>1, '2'=>2, '3'=>3, '4'=>4, '5'=>5, '6'=>6, '7'=>7, '8'=>8, '9'=>9}
+  @@new_board = DEFAULT_BOARD
+
+  @@players = {}
+  @@current_player = nil
 
   def self.instantiate_player
     2.times do |i|
@@ -65,7 +68,7 @@ class Player
   end
 
   private
-  
+
   def winner?(playing_numbers)
     WINNING_CONDITIONS.each do |win|
       ((win & playing_numbers) == win) ? true : false
