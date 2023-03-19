@@ -13,7 +13,7 @@ class Game
   DEFAULT_BOARD = {'1'=>1, '2'=>2, '3'=>3, '4'=>4, '5'=>5, '6'=>6, '7'=>7, '8'=>8, '9'=>9}
   @@new_board = DEFAULT_BOARD
 
-  attr_accessor :player1, :player2
+  attr_accessor :player1, :player2, :current_player
 
   def initialize(player1_name, player2_name)
     self.player1 = Player.new(player1_name, "X")
@@ -21,19 +21,14 @@ class Game
     self.current_player = self.set_current_player(self.player1, self.player2)
   end
   
-  def self.set_current_player(players_name)
-    unless @@current_player
-      puts 'Who plays first?'
-      puts "\t1. #{players_name[0]}"
-      puts "\t2. #{players_name[1]}"
-      print 'Input (1/2): '
-      selected_player = gets.chomp.to_i
-      @@current_player = players_name[selected_player - 1]
-    else
-      @@current_player = 
-        @@current_player == players_name[0] ?
-        players_name[1] : players_name[0]
-    end
+  def set_current_player(player_1, player_2)
+    puts 'Who plays first?'
+    puts "\t1. #{player_1.name}"
+    puts "\t2. #{players_2.name}"
+    print 'Input (1/2): '
+    current_player = gets.chomp.to_i
+    self.current_player =
+      current_player == 1 ? player_1 : player_2
   end
   
   def self.draw_board(board = DEFAULT_BOARD)
