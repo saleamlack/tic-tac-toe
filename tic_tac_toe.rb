@@ -21,9 +21,10 @@ module TicTacToe
     def draw_board
       self.grid.each_with_index do |symbol, idx|
         _symbol = symbol ? symbol : idx + 1
+        print "\t" if idx == 0 || idx == 3 || idx == 6
         print " #{_symbol} "
         print '|' unless idx == 2 || idx == 5 || idx == 8
-        puts "\n---+---+---" if idx == 2 || idx == 5
+        puts "\n\t---+---+---" if idx == 2 || idx == 5
         puts if idx == 8
       end
     end
