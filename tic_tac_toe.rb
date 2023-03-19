@@ -29,6 +29,10 @@ class Board
     self.grid[position - 1] = player.player_symbol
     player.playing_numbers << position
   end
+
+  def valid_move?(position)
+    grid[position - 1].nil?
+  end
 end
 
 class Game
