@@ -62,6 +62,12 @@ class Game
     self.current_player =
       current_player == 1 ? self.player1 : self.player2
   end
+
+  def switch_current_player
+    self.current_player = 
+      self.current_player == self.player1 ?
+      self.player2 : self.player1
+  end
  
   def self.set_playing_number(current_player)
     puts "Select a number from a board!"
