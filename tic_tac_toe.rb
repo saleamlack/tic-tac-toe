@@ -25,9 +25,9 @@ class Board
     end
   end
 
-  def self.update_board(playing_number)
-    @@new_board[playing_number] = @@players[@@current_player].player_symbol
-    Player.draw_board(@@new_board)
+  def move(player, position)
+    self.grid[position - 1] = player.player_symbol
+    player.playing_numbers << position
   end
 end
 
