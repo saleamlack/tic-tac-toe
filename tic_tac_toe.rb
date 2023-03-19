@@ -78,6 +78,14 @@ class Game
       (line & self.current_player.playing_numbers) == line
     end
   end
+
+  def display_result
+    if winner?
+      "#{self.current_player.name} Win!"
+    elsif full?
+      "Its a draw!"
+    end
+  end
 end
 
 #draw_board({"1"=>1, "2"=>2, "3"=>3, "4"=>4, "5"=>5, "6"=>6, "7"=>7, "8"=>8, "9"=>9})
