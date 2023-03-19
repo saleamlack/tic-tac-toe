@@ -15,17 +15,14 @@ class Board
     self.grid = Array.new(9)
   end
 
-  def self.draw_board(board = DEFAULT_BOARD)
-    puts "
-         |     |     
-     -#{board["1"]}- | -#{board["2"]}- | -#{board["3"]}-
-    _____|_____|_____
-         |     |     
-     -#{board["4"]}- | -#{board["5"]}- | -#{board["6"]}- 
-    _____|_____|_____
-         |     |     
-     -#{board["7"]}- | -#{board["8"]}- | -#{board["9"]}- 
-         |     |     "
+  def draw_board
+    self.grid.each_with_index do |symbol, idx|
+      _symbol = symbol ? symbol : idx
+      print " #{_symbol} "
+      puts '|' unless idx == 2 || idx == 5 || idx == 8
+      puts "\n---+---+---" if idx == 2 || idx == 5
+      puts if idx == 8
+    end
   end
 
   def self.update_board(playing_number)
