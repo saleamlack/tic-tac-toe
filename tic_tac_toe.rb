@@ -9,6 +9,11 @@ class Player
 end
 
 class Board
+  attr_accessor :grid
+
+  def initialize
+    self.grid = Array.new(9)
+  end
 
   def self.draw_board(board = DEFAULT_BOARD)
     puts "
