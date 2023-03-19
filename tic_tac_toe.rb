@@ -44,7 +44,7 @@ class Game
   DEFAULT_BOARD = {'1'=>1, '2'=>2, '3'=>3, '4'=>4, '5'=>5, '6'=>6, '7'=>7, '8'=>8, '9'=>9}
   @@new_board = DEFAULT_BOARD
 
-  attr_accessor :player1, :player2, :board, :current_player
+  attr_accessor :player1, :player2, :boare, :current_player
 
   def initialize(player1_name, player2_name)
     self.player1 = Player.new(player1_name, "X")
@@ -53,14 +53,14 @@ class Game
     self.current_player = self.set_current_player(self.player1, self.player2)
   end
   
-  def set_current_player(player_1, player_2)
+  def set_current_player
     puts 'Who plays first?'
-    puts "\t1. #{player_1.name}"
-    puts "\t2. #{players_2.name}"
+    puts "\t1. #{self.player1.name}"
+    puts "\t2. #{self.players2.name}"
     print 'Input (1/2): '
     current_player = gets.chomp.to_i
     self.current_player =
-      current_player == 1 ? player_1 : player_2
+      current_player == 1 ? self.player1 : self.player2
   end
  
   def self.set_playing_number(current_player)
