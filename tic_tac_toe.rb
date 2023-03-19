@@ -56,8 +56,9 @@ class Game
     self.board.draw_board
     loop do
       position = self.set_playing_number
-      redo unless board.valid_move?(positon)
-      self.board.move(self.current_player, postion)
+      redo unless board.valid_move?(position)
+      self.board.move(self.current_player, position)
+      self.board.draw_board
       break self.winner? || self.board.full?
       self.switch_current_player
     end
