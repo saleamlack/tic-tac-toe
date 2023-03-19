@@ -13,7 +13,13 @@ class Game
   DEFAULT_BOARD = {'1'=>1, '2'=>2, '3'=>3, '4'=>4, '5'=>5, '6'=>6, '7'=>7, '8'=>8, '9'=>9}
   @@new_board = DEFAULT_BOARD
 
+  attr_accessor :player1, :player2
+
   @@current_player = nil
+  def initialize(player1_name, player2_name)
+    self.player1 = Player.new(player1_name, "X")
+    self.player2 = Player.new(player2_name, "O")
+  end
   
   def self.set_current_player(players_name)
     unless @@current_player
