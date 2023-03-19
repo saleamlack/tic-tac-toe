@@ -13,19 +13,7 @@ class Game
   DEFAULT_BOARD = {'1'=>1, '2'=>2, '3'=>3, '4'=>4, '5'=>5, '6'=>6, '7'=>7, '8'=>8, '9'=>9}
   @@new_board = DEFAULT_BOARD
 
-  @@players = {}
   @@current_player = nil
-
-  def self.instantiate_player
-    2.times do |i|
-      puts "Player #{i + 1}: "
-      print "\tName: "
-      name = gets.chomp
-      print "\tSymbol[O/X]: "
-      player_symbol = gets.chomp.upcase
-      @@players[name] = Player.new(name, player_symbol)
-    end
-  end
   
   def self.set_current_player(players_name)
     unless @@current_player
