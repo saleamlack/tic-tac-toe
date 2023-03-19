@@ -42,16 +42,17 @@ end
 class Game
   WINNING_CONDITIONS = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7], [2, 5, 8], [3, 6, 9], [1, 5, 9], [3, 5, 7]]
 
-  attr_accessor :player1, :player2, :boare, :current_player
+  attr_accessor :player1, :player2, :board, :current_player
 
   def initialize(player1_name, player2_name)
     self.player1 = Player.new(player1_name, "X")
     self.player2 = Player.new(player2_name, "O")
     self.board = Board.new
-    self.current_player = self.set_current_player(self.player1, self.player2)
+    self.current_player = nil
   end
 
   def play
+    self.set_current_player
     self.board.draw_board
     loop do
       position = self.set_playing_number
@@ -93,12 +94,12 @@ class Game
   end
 
   def display_result
-    if winner?
+    if self.winner?
       "#{self.current_player.name} Win!"
-    elsif full?
+    elsif self.board.full?
       "Its a draw!"
     end
   end
 end
 
-#draw_board({"1"=>1, "2"=>2, "3"=>3, "4"=>4, "5"=>5, "6"=>6, "7"=>7, "8"=>8, "9"=>9})
+game = Game.new("Sale", "Rekik")
