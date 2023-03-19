@@ -33,6 +33,10 @@ class Board
   def valid_move?(position)
     grid[position - 1].nil?
   end
+
+  def full?
+    grid.all?
+  end
 end
 
 class Game
