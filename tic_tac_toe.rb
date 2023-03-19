@@ -15,10 +15,10 @@ class Game
 
   attr_accessor :player1, :player2
 
-  @@current_player = nil
   def initialize(player1_name, player2_name)
     self.player1 = Player.new(player1_name, "X")
     self.player2 = Player.new(player2_name, "O")
+    self.current_player = self.set_current_player(self.player1, self.player2)
   end
   
   def self.set_current_player(players_name)
