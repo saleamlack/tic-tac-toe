@@ -106,8 +106,3 @@ module TicTacToe
     end
   end
 end
-
-include TicTacToe
-
-game = Game.new("Sale", "Rekik")
-game.play
