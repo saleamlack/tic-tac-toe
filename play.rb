@@ -1,5 +1,6 @@
 require './tic_tac_toe'
 include TicTacToe
 
-game = Game.new('Sale', 'Rekik')
+players = Game.get_players
+game = Game.new(*players)
 game.play

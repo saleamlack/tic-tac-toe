@@ -56,7 +56,6 @@ module TicTacToe
     end
 
     def play
-      welcome
       set_current_player
       board.draw_board
       loop do
@@ -69,6 +68,18 @@ module TicTacToe
         switch_current_player
       end
       puts display_result
+    end
+
+    def self.get_players
+      welcome
+      players = []
+      puts "Enter players name"
+      2.times do |i|
+        puts "player#{i + 1}"
+        print "\tName: "
+        players << gets.chomp.capitalize
+      end
+      players
     end
 
     def set_current_player
@@ -124,7 +135,7 @@ module TicTacToe
       false
     end
 
-    def welcome
+    def self.welcome
       puts '
 Welcome to Tic-Tac-Toe!
     * To play, select a cell on the board to place your mark.
