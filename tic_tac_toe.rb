@@ -102,9 +102,11 @@ module TicTacToe
 
     def display_result
       if self.winner?
-        "#{self.current_player.name} Win!"
+        "#{self.current_player.name}(#{self.current_player.player_symbol}) wins! Congratulations!
+         Thanks for playing!"
       elsif self.board.full?
-        "Its a draw!"
+        "It's a tie! Great game.
+         Thanks for playing!"
       end
     end
 
