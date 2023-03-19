@@ -73,9 +73,9 @@ class Game
     self.current_player.playing_numbers.push(played_number)
   end
 
-  def winner?(playing_numbers)
-    WINNING_CONDITIONS.each do |win|
-      ((win & playing_numbers) == win) ? true : false
+  def winner?
+    WINNING_CONDITIONS.each do |line|
+      (line & self.current_player.playing_numbers) == line
     end
   end
 end
