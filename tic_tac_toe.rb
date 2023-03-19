@@ -17,9 +17,9 @@ class Board
 
   def draw_board
     self.grid.each_with_index do |symbol, idx|
-      _symbol = symbol ? symbol : idx
+      _symbol = symbol ? symbol : idx + 1
       print " #{_symbol} "
-      puts '|' unless idx == 2 || idx == 5 || idx == 8
+      print '|' unless idx == 2 || idx == 5 || idx == 8
       puts "\n---+---+---" if idx == 2 || idx == 5
       puts if idx == 8
     end
@@ -103,3 +103,4 @@ class Game
 end
 
 game = Game.new("Sale", "Rekik")
+game.play
