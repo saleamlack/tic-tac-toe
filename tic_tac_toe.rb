@@ -55,6 +55,7 @@ module TicTacToe
     end
 
     def play
+      self.welcome
       self.set_current_player
       self.board.draw_board
       loop do
@@ -74,9 +75,12 @@ module TicTacToe
       puts "\t2. #{self.player2.name} (#{self.player2.player_symbol})"
       print 'Input (1/2): '
       current_player = gets.chomp.to_i
-      self.set_current_player unless valid_player?(current_player)
-      self.current_player =
-        current_player == 1 ? self.player1 : self.player2
+      if valid_player?(current_player)
+        self.current_player =
+          current_player == 1 ? self.player1 : self.player2
+      else
+        self.set_current_player
+      end
     end
 
     def switch_current_player
@@ -114,6 +118,16 @@ module TicTacToe
       return true if player == 1 || player == 2
       puts "Invalid player. Please Select player"
       false
+    end
+
+    def welcome
+      puts '
+Welcome to Tic-Tac-Toe!
+    * To play, select a cell on the board to place your mark.
+    * The first player to get three in a row wins!
+Let\'s get started!
+
+'
     end
   end
 end
