@@ -44,11 +44,12 @@ class Game
   DEFAULT_BOARD = {'1'=>1, '2'=>2, '3'=>3, '4'=>4, '5'=>5, '6'=>6, '7'=>7, '8'=>8, '9'=>9}
   @@new_board = DEFAULT_BOARD
 
-  attr_accessor :player1, :player2, :current_player
+  attr_accessor :player1, :player2, :board, :current_player
 
   def initialize(player1_name, player2_name)
     self.player1 = Player.new(player1_name, "X")
     self.player2 = Player.new(player2_name, "O")
+    self.board = Board.new
     self.current_player = self.set_current_player(self.player1, self.player2)
   end
   
