@@ -50,11 +50,23 @@ class Game
     self.board = Board.new
     self.current_player = self.set_current_player(self.player1, self.player2)
   end
+
+  def play
+    self.board.draw_board
+    loop do
+      position = self.set_playing_number
+      redo unless board.valid_move?(positon)
+      self.board.move(self.current_player, postion)
+      break self.winner? || self.board.full?
+      self.switch_current_player
+    end
+    self.display_result
+  end
   
   def set_current_player
     puts 'Who plays first?'
     puts "\t1. #{self.player1.name}"
-    puts "\t2. #{self.players2.name}"
+    puts "\t2. #{self.player2.name}"
     print 'Input (1/2): '
     current_player = gets.chomp.to_i
     self.current_player =
@@ -71,6 +83,7 @@ class Game
     puts "Put your symbol on postion: "
     played_number = gets.chomp.to_i
     self.current_player.playing_numbers.push(played_number)
+    played_number
   end
 
   def winner?
