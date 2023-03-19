@@ -1,4 +1,6 @@
 module TicTacToe
+  WINNING_CONDITIONS = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7], [2, 5, 8], [3, 6, 9], [1, 5, 9], [3, 5, 7]]
+
   class Player
     attr_accessor :name, :player_symbol, :playing_numbers
 
@@ -43,8 +45,6 @@ module TicTacToe
   end
 
   class Game
-    WINNING_CONDITIONS = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7], [2, 5, 8], [3, 6, 9], [1, 5, 9], [3, 5, 7]]
-
     attr_accessor :player1, :player2, :board, :current_player
 
     def initialize(player1_name, player2_name)
