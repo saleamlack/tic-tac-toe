@@ -32,7 +32,9 @@ module TicTacToe
     end
 
     def valid_move?(position)
-      grid[position - 1].nil?
+      return true if grid[position - 1].nil? && (1..9).include?(position)
+      puts "Invalid move. Please select an empty cell on the board"
+      false
     end
 
     def full?
