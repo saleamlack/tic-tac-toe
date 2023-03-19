@@ -74,6 +74,7 @@ module TicTacToe
       puts "\t2. #{self.player2.name} (#{self.player2.player_symbol})"
       print 'Input (1/2): '
       current_player = gets.chomp.to_i
+      self.set_current_player unless valid_player?(current_player)
       self.current_player =
         current_player == 1 ? self.player1 : self.player2
     end
@@ -105,6 +106,12 @@ module TicTacToe
       elsif self.board.full?
         "Its a draw!"
       end
+    end
+
+    def valid_player?(player)
+      return true if player == 1 || player == 2
+      puts "Invalid player. Please Select player"
+      false
     end
   end
 end
