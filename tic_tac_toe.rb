@@ -90,8 +90,9 @@ class Game
 
   def winner?
     WINNING_CONDITIONS.each do |line|
-      (line & self.current_player.playing_numbers) == line
+      return true (line & self.current_player.playing_numbers) == line
     end
+    false
   end
 
   def display_result
